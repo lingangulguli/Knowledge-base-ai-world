@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全部文章 · AI 专区</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">AI</div>
+        AI 专区 <span class="sep">· 游戏知识库</span>
+      </a>
+      <nav>
+        <a href="articles.html" class="active">文章</a>
+        <a href="skills.html">Skill Hub</a>
+        <a href="tools.html">工具墙</a>
+      </nav>
+    </div>
+    <div class="header-right">
+      <button class="search-trigger" onclick="alert('搜索功能开发中…')">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M13 13l-3-3"/></svg>
+        搜索文章…
+        <kbd>⌘K</kbd>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero fade-up">
+  <h1>全部 AI 文章</h1>
+  <p>汇集近 3 个月内知识库中的 AI 相关文章，包含团队经验、个人沉淀和新征文</p>
+</div>
+
+<div class="page-controls fade-up d1">
+  <div class="tabs">
+    <button class="tab-btn active">全部</button>
+    <button class="tab-btn">团队经验</button>
+    <button class="tab-btn">个人沉淀</button>
+    <button class="tab-btn">新征文</button>
+  </div>
+  <div style="display:flex;gap:10px;">
+    <input class="page-search" placeholder="搜索文章标题或关键词…" id="articleSearch">
+    <select class="page-sort">
+      <option>按时间排序</option>
+      <option>按热度排序</option>
+      <option>按阅读量</option>
+    </select>
+  </div>
+</div>
+
+<div class="section page-content fade-up d2" style="padding-top:0;">
+  <div class="category-pills" id="pagePills" style="margin-bottom:20px;"></div>
+  <div class="articles-grid" id="allArticles"></div>
+</div>
+
+<footer class="footer">
+  <span>© 2026 游戏知识库 · AI 专区</span>
+  <div class="footer-links">
+    <a href="https://gameinstitute.qq.com/" target="_blank">关于我们</a>
+    <a href="https://wj.qq.com/s2/26026989/0c20" target="_blank">反馈建议</a>
+    <a href="https://gameinstitute.qq.com/" target="_blank">帮助文档</a>
+  </div>
+</footer>
+
+<div class="panel-overlay" id="panelOverlay" onclick="closePanel()"></div>
+<div class="detail-panel" id="detailPanel">
+  <div class="panel-header">
+    <button class="panel-fav" onclick="alert('已收藏')">♡</button>
+    <button class="panel-close" onclick="closePanel()">✕</button>
+  </div>
+  <div class="panel-body" id="panelBody"></div>
+</div>
+
+<script src="../js/main.js"></script>
+<script>
+  renderCategoryPills(CATEGORIES, 'pagePills');
+  document.getElementById('allArticles').innerHTML =
+    ARTICLES.map(a => renderArticleCard(a, false)).join('');
+  initPills();
+
+  // Simple search
+  document.getElementById('articleSearch').addEventListener('input', function() {
+    const q = this.value.toLowerCase();
+    document.querySelectorAll('.article-card').forEach(card => {
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      card.style.display = title.includes(q) ? '' : 'none';
+    });
+  });
+</script>
+</body>
+</html>
