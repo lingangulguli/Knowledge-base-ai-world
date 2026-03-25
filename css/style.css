@@ -20,14 +20,22 @@ nav{display:flex;gap:2px}nav a{padding:6px 14px;border-radius:var(--radius-sm);f
 .hero-stats{display:flex;gap:36px}.hero-stat-value{font-family:var(--font-en);font-size:28px;font-weight:700;letter-spacing:-.02em}.hero-stat-label{font-size:12px;color:var(--text-tertiary);margin-top:2px}
 
 /* Install Widget */
-.install-widget{background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-sm)}
+.install-widget{background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;transition:box-shadow .3s,border-color .3s}
+.install-widget:hover{box-shadow:var(--shadow-md);border-color:var(--border)}
+.install-widget::before{content:'';position:absolute;top:-30px;right:-30px;width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,rgba(37,99,235,.08),rgba(124,58,237,.08));pointer-events:none}
+.install-widget::after{content:'';position:absolute;bottom:-20px;left:-20px;width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,rgba(16,185,129,.06),rgba(37,99,235,.06));pointer-events:none}
+.install-widget-inner{position:relative;z-index:1}
+.install-widget-deco{position:absolute;top:12px;right:12px;width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:20px;opacity:.1;transform:rotate(12deg);pointer-events:none;animation:decoFloat 6s ease-in-out infinite}
+@keyframes decoFloat{0%,100%{transform:rotate(12deg) translateY(0)}50%{transform:rotate(12deg) translateY(-4px)}}
+.install-widget-stripe{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#2563EB,#7C3AED,#E11D48);border-radius:var(--radius-lg) var(--radius-lg) 0 0}
+.install-tab{flex:1;padding:8px;border-radius:5px;font-size:13px;font-weight:500;text-align:center;color:var(--text-secondary);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px}
+.install-tab.active{background:var(--surface);color:var(--text-primary);box-shadow:var(--shadow-sm)}.install-tab:hover:not(.active){color:var(--text-primary);background:rgba(0,0,0,.02)}
 .install-widget-title{font-size:14px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:6px}
 .install-tabs{display:flex;background:var(--surface-alt);border-radius:var(--radius-sm);padding:3px;margin-bottom:16px}
-.install-tab{flex:1;padding:8px;border-radius:5px;font-size:13px;font-weight:500;text-align:center;color:var(--text-secondary);transition:all var(--t);display:flex;align-items:center;justify-content:center;gap:6px}.install-tab.active{background:var(--surface);color:var(--text-primary);box-shadow:var(--shadow-sm)}
 .install-content{font-size:13px;color:var(--text-secondary);line-height:1.6}.install-content p{margin-bottom:10px}
 .copy-block{background:var(--surface-alt);border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
 .copy-block code{font-family:var(--font-mono);font-size:11px;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
-.copy-btn{display:flex;align-items:center;gap:4px;padding:5px 10px;border-radius:4px;font-size:12px;font-weight:500;color:var(--text-secondary);background:var(--surface);border:1px solid var(--border);transition:all var(--t);flex-shrink:0}.copy-btn:hover{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}.copy-btn.copied{background:var(--green-soft);color:var(--green);border-color:var(--green)}
+.copy-btn{display:flex;align-items:center;gap:4px;padding:5px 10px;border-radius:4px;font-size:12px;font-weight:500;color:var(--text-secondary);background:var(--surface);border:1px solid var(--border);transition:all .2s;flex-shrink:0}.copy-btn:hover{background:var(--accent-soft);color:var(--accent);border-color:var(--accent);transform:scale(1.02)}.copy-btn.copied{background:var(--green-soft);color:var(--green);border-color:var(--green)}
 .install-note{font-size:11px;color:var(--text-tertiary);margin-top:14px;padding-top:12px;border-top:1px solid var(--border-light);line-height:1.5}.install-note a{color:var(--accent)}
 .install-panel{transition:opacity .2s}
 
