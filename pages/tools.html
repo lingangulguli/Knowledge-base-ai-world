@@ -1,113 +1,16 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 工具墙 · AI 专区</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AI 工具墙 · AI 专区</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../css/style.css"></head><body>
+<header class="header"><div class="header-inner"><div class="header-left"><a href="../index.html" class="logo"><div class="logo-icon">AI</div>AI 专区 <span class="sep">· 游戏知识库</span></a><nav><a href="articles.html">文章</a><a href="skills.html">Skill Hub</a><a href="tools.html" class="active">工具墙</a></nav></div><div class="header-right"><button class="search-trigger"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M13 13l-3-3"/></svg>搜索工具…<kbd>⌘K</kbd></button></div></div></header>
 
-<header class="header">
-  <div class="header-inner">
-    <div class="header-left">
-      <a href="../index.html" class="logo">
-        <div class="logo-icon">AI</div>
-        AI 专区 <span class="sep">· 游戏知识库</span>
-      </a>
-      <nav>
-        <a href="articles.html">文章</a>
-        <a href="skills.html">Skill Hub</a>
-        <a href="tools.html" class="active">工具墙</a>
-      </nav>
-    </div>
-    <div class="header-right">
-      <button class="search-trigger" onclick="alert('搜索功能开发中…')">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M13 13l-3-3"/></svg>
-        搜索工具…
-        <kbd>⌘K</kbd>
-      </button>
-    </div>
-  </div>
-</header>
+<div class="page-hero fade-up"><h1>AI 工具墙</h1><p>收录游戏研发相关的 AI 工具，标注司内/外部来源</p></div>
+<div class="page-controls fade-up d1"><div class="tabs"><button class="tab-btn active" onclick="filterCat('全部')">精选工具</button><button class="tab-btn" onclick="filterCat('美术生成')">美术生成</button><button class="tab-btn" onclick="filterCat('问答方案')">问答方案</button><button class="tab-btn" onclick="filterCat('技术生产')">技术生产</button><button class="tab-btn" onclick="filterCat('效率工具')">效率工具</button></div><div class="tabs"><button class="tab-btn active" onclick="filterSrc('全部',this)">全部</button><button class="tab-btn" onclick="filterSrc('司内',this)">内部</button><button class="tab-btn" onclick="filterSrc('外部',this)">外部</button></div></div>
 
-<div class="page-hero fade-up">
-  <h1>AI 工具墙</h1>
-  <p>收录游戏研发相关的 AI 工具，标注司内/外部来源，帮你快速找到合适的工具</p>
-</div>
+<div class="section page-content fade-up d2" style="padding-top:0"><div class="tools-grid" id="allTools"></div></div>
 
-<div class="page-controls fade-up d1">
-  <div class="tabs">
-    <button class="tab-btn active" onclick="filterTools('全部')">全部</button>
-    <button class="tab-btn" onclick="filterTools('美术生成')">美术生成</button>
-    <button class="tab-btn" onclick="filterTools('问答方案')">问答方案</button>
-    <button class="tab-btn" onclick="filterTools('技术生产')">技术生产</button>
-    <button class="tab-btn" onclick="filterTools('效率工具')">效率工具</button>
-  </div>
-  <div class="tabs">
-    <button class="tab-btn active" onclick="filterSource('全部',this)">全部</button>
-    <button class="tab-btn" onclick="filterSource('司内',this)">司内</button>
-    <button class="tab-btn" onclick="filterSource('外部',this)">外部</button>
-  </div>
-</div>
-
-<div class="section page-content fade-up d2" style="padding-top:0;">
-  <div class="tools-grid" id="allTools"></div>
-</div>
-
-<footer class="footer">
-  <span>© 2026 游戏知识库 · AI 专区</span>
-  <div class="footer-links">
-    <a href="https://gameinstitute.qq.com/" target="_blank">关于我们</a>
-    <a href="https://wj.qq.com/s2/26026989/0c20" target="_blank">反馈建议</a>
-    <a href="https://gameinstitute.qq.com/" target="_blank">帮助文档</a>
-  </div>
-</footer>
-
-<div class="panel-overlay" id="panelOverlay" onclick="closePanel()"></div>
-<div class="detail-panel" id="detailPanel">
-  <div class="panel-header">
-    <button class="panel-fav" onclick="alert('已收藏')">♡</button>
-    <button class="panel-close" onclick="closePanel()">✕</button>
-  </div>
-  <div class="panel-body" id="panelBody"></div>
-</div>
-
+<footer class="footer"><span>© 2026 游戏知识库 · AI 专区</span><div class="footer-links"><a href="https://gameinstitute.qq.com/" target="_blank">关于我们</a><a href="https://wj.qq.com/s2/26026989/0c20" target="_blank">反馈建议</a><a href="https://gameinstitute.qq.com/" target="_blank">帮助文档</a></div></footer>
+<div class="panel-overlay" id="panelOverlay" onclick="closePanel()"></div><div class="detail-panel" id="detailPanel"><div class="panel-header"><button class="panel-fav" onclick="alert('已收藏')">♡</button><button class="panel-close" onclick="closePanel()">✕</button></div><div class="panel-body" id="panelBody"></div></div>
 <script src="../js/main.js"></script>
 <script>
-  document.getElementById('allTools').innerHTML =
-    TOOLS.map(t => renderToolCard(t)).join('');
-
-  function filterTools(cat) {
-    document.querySelectorAll('.tool-card').forEach(card => {
-      if (cat === '全部' || card.dataset.category === cat) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-    // Update tab active states
-    const tabs = event.target.closest('.tabs');
-    tabs.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
-  }
-
-  function filterSource(src, btn) {
-    const tabs = btn.closest('.tabs');
-    tabs.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.tool-card').forEach(card => {
-      const badge = card.querySelector('.badge-pos');
-      const isInternal = badge && badge.classList.contains('badge-internal');
-      if (src === '全部') card.style.display = '';
-      else if (src === '司内' && isInternal) card.style.display = '';
-      else if (src === '外部' && !isInternal) card.style.display = '';
-      else card.style.display = 'none';
-    });
-  }
-</script>
-</body>
-</html>
+document.getElementById('allTools').innerHTML=TOOLS.map(t=>renderToolCard(t)).join('');
+function filterCat(cat){document.querySelectorAll('.tool-card-v2').forEach(c=>{c.style.display=(cat==='全部'||c.dataset.category===cat)?'':'none';});const tabs=event.target.closest('.tabs');tabs.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));event.target.classList.add('active');}
+function filterSrc(src,btn){const tabs=btn.closest('.tabs');tabs.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.tool-card-v2').forEach(c=>{const isInt=c.querySelector('.badge-internal');if(src==='全部')c.style.display='';else if(src==='司内'&&isInt)c.style.display='';else if(src==='外部'&&!isInt)c.style.display='';else c.style.display='none';});}
+</script></body></html>

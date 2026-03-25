@@ -1,206 +1,66 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 专区 · 游戏知识库</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AI 专区 · 游戏知识库</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"></head><body>
+<header class="header"><div class="header-inner"><div class="header-left"><a href="index.html" class="logo"><div class="logo-icon">AI</div>AI 专区 <span class="sep">· 游戏知识库</span></a><nav><a href="#articles" class="active">文章</a><a href="#skills">Skill Hub</a><a href="#tools">工具墙</a></nav></div><div class="header-right"><button class="search-trigger"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M13 13l-3-3"/></svg>搜索文章、技能、工具…<kbd>⌘K</kbd></button></div></div></header>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="header-inner">
-    <div class="header-left">
-      <a href="index.html" class="logo">
-        <div class="logo-icon">AI</div>
-        AI 专区 <span class="sep">· 游戏知识库</span>
-      </a>
-      <nav>
-        <a href="#articles" class="active">文章</a>
-        <a href="#skills">Skill Hub</a>
-        <a href="#tools">工具墙</a>
-      </nav>
-    </div>
-    <div class="header-right">
-      <button class="search-trigger" onclick="alert('搜索功能开发中…')">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M13 13l-3-3"/></svg>
-        搜索文章、技能、工具…
-        <kbd>⌘K</kbd>
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero fade-up">
-  <div class="hero-left">
-    <div class="hero-badge">
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="7,1 9,5 13,5.5 10,8.5 11,13 7,11 3,13 4,8.5 1,5.5 5,5"/></svg>
-      专为游戏研发场景打造
-    </div>
-    <h1 class="fade-up d1">游戏 AI 知识<br><em>一站聚合</em></h1>
-    <p class="hero-desc fade-up d2">
-      汇集游戏研发领域的 AI 技术文章、可复用 Skills 和实用工具，<br>从经验沉淀到即装即用，加速团队 AI 落地。
-    </p>
-    <div class="hero-stats fade-up d3">
-      <div class="hero-stat">
-        <div class="hero-stat-value">128</div>
-        <div class="hero-stat-label">AI 相关文章</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-value">46</div>
-        <div class="hero-stat-label">可安装 Skills</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-value">23</div>
-        <div class="hero-stat-label">收录工具</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Install Widget -->
-  <div class="install-widget fade-up d4">
-    <div class="install-widget-title">
-      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M8 5v6M5 8h6"/></svg>
-      快速安装 AI World 技能商店
-    </div>
-    <div class="install-tabs">
-      <button class="install-tab active hero-install-tab" data-target="agent">🤖 我是 Agent</button>
-      <button class="install-tab hero-install-tab" data-target="human">👤 我是 Human</button>
-    </div>
-    <div class="install-content">
-      <div class="install-panel" data-panel="agent">
-        <p>将此提示发送给你的 Agent，以安装 AI World CLI：</p>
-        <div class="copy-block">
-          <code>根据 https://skillhub-1388575217.cos.ap-guangzhou.myqcloud.com/install/skillhub.md 安装知识库 AI World 商店，但是只安装 CLI。</code>
-          <button class="copy-btn" onclick="copyText(this,'根据 https://skillhub-1388575217.cos.ap-guangzhou.myqcloud.com/install/skillhub.md 安装知识库 AI World 商店，但是只安装 CLI。')">📋 复制</button>
-        </div>
-      </div>
-      <div class="install-panel" data-panel="human" style="display:none;">
-        <p>手动安装 AI World CLI，运行以下命令：</p>
-        <div class="copy-block">
-          <code>curl -fsSL https://example.com/install.sh | bash</code>
-          <button class="copy-btn" onclick="copyText(this,'curl -fsSL https://example.com/install.sh | bash')">📋 复制</button>
-        </div>
-        <p style="margin-top:10px;font-size:12px;color:var(--text-tertiary);">* 此为演示命令，安装脚本暂未上线</p>
-      </div>
-    </div>
-    <div class="install-note">
-      技能数据来源于 <a href="https://skillhub.tencent.com/" target="_blank">SkillHub</a> 和 <a href="https://github.com/nicepkg/claw-hub" target="_blank">ClawHub</a> 生态
-    </div>
-  </div>
+<section class="hero fade-up"><div class="hero-left">
+  <div class="hero-badge"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="7,1 9,5 13,5.5 10,8.5 11,13 7,11 3,13 4,8.5 1,5.5 5,5"/></svg>专为游戏研发场景打造</div>
+  <h1 class="fade-up d1">游戏 AI 知识<br><em>一站聚合</em></h1>
+  <p class="hero-desc fade-up d2">汇集游戏研发领域的 AI 技术文章、可复用 Skills 和实用工具，<br>从经验沉淀到即装即用，加速团队 AI 落地。</p>
+  <div class="hero-stats fade-up d3"><div class="hero-stat"><div class="hero-stat-value">128</div><div class="hero-stat-label">AI 相关文章</div></div><div class="hero-stat"><div class="hero-stat-value">46</div><div class="hero-stat-label">可安装 Skills</div></div><div class="hero-stat"><div class="hero-stat-value">23</div><div class="hero-stat-label">收录工具</div></div></div>
+</div>
+<div class="install-widget fade-up d4"><div class="install-widget-title">⚡ 快速安装 AI World 技能商店</div><div class="install-tabs"><button class="install-tab active hero-install-tab" data-target="agent">🤖 我是 Agent</button><button class="install-tab hero-install-tab" data-target="human">👤 我是 Human</button></div><div class="install-content"><div class="install-panel" data-panel="agent"><p>将此提示发送给你的 Agent，以安装 AI World CLI：</p><div class="copy-block"><code>根据 https://skillhub-1388575217.cos.ap-guangzhou.myqcloud.com/install/skillhub.md 安装知识库 AI World 商店，但是只安装 CLI。</code><button class="copy-btn" onclick="copyText(this,'根据 https://skillhub-1388575217.cos.ap-guangzhou.myqcloud.com/install/skillhub.md 安装知识库 AI World 商店，但是只安装 CLI。')">📋 复制</button></div></div><div class="install-panel" data-panel="human" style="display:none"><p>手动安装 AI World CLI：</p><div class="copy-block"><code>curl -fsSL https://example.com/install.sh | bash</code><button class="copy-btn" onclick="copyText(this,'curl -fsSL https://example.com/install.sh | bash')">📋 复制</button></div><p style="margin-top:10px;font-size:12px;color:var(--text-tertiary);">* 演示命令，安装脚本暂未上线</p></div></div><div class="install-note">技能数据来源于 <a href="https://skillhub.tencent.com/" target="_blank">SkillHub</a> 和 <a href="https://github.com/nicepkg/claw-hub" target="_blank">ClawHub</a> 生态</div></div>
 </section>
 
-<!-- TREND BAR -->
-<div class="trend-bar fade-up d5">
-  <div class="trend-inner">
-    <span class="trend-label">🔥 热门趋势</span>
-    <div class="trend-items">
-      <button class="trend-chip">生成式 NPC 交互</button>
-      <button class="trend-chip">AI 辅助 3D 贴图</button>
-      <button class="trend-chip">Sora 游戏化应用</button>
-      <button class="trend-chip">LLM 代码审查</button>
-      <button class="trend-chip">AI 场景生成</button>
-      <button class="trend-chip">语音合成 NPC</button>
-    </div>
-  </div>
-</div>
+<div class="trend-bar fade-up d5"><div class="trend-inner"><span class="trend-label">🔥 热门趋势</span><div class="trend-items"><button class="trend-chip">生成式 NPC 交互</button><button class="trend-chip">AI 辅助 3D 贴图</button><button class="trend-chip">Sora 游戏化应用</button><button class="trend-chip">LLM 代码审查</button><button class="trend-chip">AI 场景生成</button><button class="trend-chip">语音合成 NPC</button></div></div></div>
 
 <!-- ARTICLES -->
-<section class="section reveal" id="articles">
-  <div class="section-header">
-    <h2 class="section-title">AI 文章 <span class="en">Articles</span></h2>
-    <a href="pages/articles.html" class="section-more">查看全部 →</a>
-  </div>
-  <div class="tabs">
-    <button class="tab-btn active">全部</button>
-    <button class="tab-btn">团队经验</button>
-    <button class="tab-btn">个人沉淀</button>
-    <button class="tab-btn">新征文</button>
-  </div>
-  <div class="category-pills" id="articlePills"></div>
-  <div class="featured-row" id="featuredArticles"></div>
-  <div class="articles-grid" id="articleGrid"></div>
-</section>
+<section class="section reveal" id="articles"><div class="section-header"><h2 class="section-title">AI 文章 <span class="en">Articles</span></h2><a href="pages/articles.html" class="section-more">查看全部 →</a></div>
+<div class="type-switcher" id="typeSwitcher">
+  <button class="type-btn active" data-type="全部" onclick="filterArticleType('全部',this)">📑 全部文章 <span class="type-count" id="countAll"></span></button>
+  <button class="type-btn" data-type="团队经验" onclick="filterArticleType('团队经验',this)">🏢 团队经验 <span class="type-count" id="countTeam"></span></button>
+  <button class="type-btn" data-type="个人沉淀" onclick="filterArticleType('个人沉淀',this)">✍️ 个人沉淀 <span class="type-count" id="countPersonal"></span></button>
+</div>
+<div class="category-pills" id="articlePills"></div>
+<div class="featured-row" id="featuredArticles"></div>
+<div class="articles-grid" id="articleGrid"></div></section>
 
 <!-- SKILLS -->
-<section class="section reveal" id="skills">
-  <div class="section-header">
-    <h2 class="section-title">Skill Hub <span class="en">游戏 AI Skills</span></h2>
-    <a href="pages/skills.html" class="section-more">浏览全部 →</a>
-  </div>
-  <div class="category-pills" id="skillPills"></div>
-  <div class="skills-grid" id="skillGrid"></div>
-  <div class="credit-line" style="margin-top:14px;padding:0;">
-    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="5"/><path d="M6 4v2M6 8h.01"/></svg>
-    技能数据来源于 <a href="https://skillhub.tencent.com/" target="_blank">SkillHub</a>、<a href="https://github.com/nicepkg/claw-hub" target="_blank">ClawHub</a> 和 <a href="https://knot.woa.com/mcp/market" target="_blank">Knot</a>
-  </div>
-</section>
+<section class="section reveal" id="skills"><div class="section-header"><h2 class="section-title">Skill Hub <span class="en">游戏 AI Skills</span> <a href="pages/what-is-skill.html" style="font-size:12px;font-weight:600;padding:4px 12px;border-radius:100px;background:var(--accent-soft);color:var(--accent);margin-left:8px;">什么是 Skill？</a></h2><a href="pages/skills.html" class="section-more">浏览全部 →</a></div>
+<div class="category-pills" id="skillPills"></div>
+<div class="skills-grid" id="skillGrid"></div>
+<div class="credit-line" style="margin-top:14px;padding:0;">ℹ️ 技能数据来源于 <a href="https://skillhub.tencent.com/" target="_blank">SkillHub</a>、<a href="https://github.com/nicepkg/claw-hub" target="_blank">ClawHub</a> 和 <a href="https://knot.woa.com/mcp/market" target="_blank">Knot</a></div></section>
 
 <!-- TOOLS -->
-<section class="section reveal" id="tools">
-  <div class="section-header">
-    <h2 class="section-title">AI 工具墙 <span class="en">Tool Wall</span></h2>
-    <a href="pages/tools.html" class="section-more">查看全部 →</a>
-  </div>
-  <div class="tabs">
-    <button class="tab-btn active">全部</button>
-    <button class="tab-btn">美术生成</button>
-    <button class="tab-btn">问答方案</button>
-    <button class="tab-btn">技术生产</button>
-    <button class="tab-btn">效率工具</button>
-  </div>
-  <div class="tools-grid" id="toolGrid"></div>
-</section>
+<section class="section reveal" id="tools"><div class="section-header"><h2 class="section-title">AI 工具墙 <span class="en">Tool Wall</span></h2><a href="pages/tools.html" class="section-more">查看全部 →</a></div>
+<div class="tabs"><button class="tab-btn active">精选工具</button><button class="tab-btn">文本工具</button><button class="tab-btn">图像工具</button><button class="tab-btn">音频工具</button><button class="tab-btn">效率工具</button></div>
+<div class="tools-grid" id="toolGrid"></div></section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <span>© 2026 游戏知识库 · AI 专区</span>
-  <div class="footer-links">
-    <a href="https://gameinstitute.qq.com/" target="_blank">关于我们</a>
-    <a href="https://wj.qq.com/s2/26026989/0c20" target="_blank">反馈建议</a>
-    <a href="https://gameinstitute.qq.com/" target="_blank">帮助文档</a>
-  </div>
-</footer>
+<footer class="footer"><span>© 2026 游戏知识库 · AI 专区</span><div class="footer-links"><a href="https://gameinstitute.qq.com/" target="_blank">关于我们</a><a href="https://wj.qq.com/s2/26026989/0c20" target="_blank">反馈建议</a><a href="https://gameinstitute.qq.com/" target="_blank">帮助文档</a></div></footer>
 
-<!-- DETAIL PANEL -->
 <div class="panel-overlay" id="panelOverlay" onclick="closePanel()"></div>
-<div class="detail-panel" id="detailPanel">
-  <div class="panel-header">
-    <button class="panel-fav" onclick="alert('已收藏')">♡</button>
-    <button class="panel-close" onclick="closePanel()">✕</button>
-  </div>
-  <div class="panel-body" id="panelBody"></div>
-</div>
+<div class="detail-panel" id="detailPanel"><div class="panel-header"><button class="panel-fav" onclick="alert('已收藏')">♡</button><button class="panel-close" onclick="closePanel()">✕</button></div><div class="panel-body" id="panelBody"></div></div>
 
 <script src="js/main.js"></script>
 <script>
-  // Render home page content
-  renderCategoryPills(CATEGORIES, 'articlePills');
-  renderCategoryPills(CATEGORIES, 'skillPills');
+renderCategoryPills(CATEGORIES,'articlePills');
+renderCategoryPills(CATEGORIES,'skillPills');
 
-  // Featured articles
-  document.getElementById('featuredArticles').innerHTML =
-    ARTICLES.filter(a => a.featured).map(a => renderArticleCard(a, true)).join('');
+// Counts
+document.getElementById('countAll').textContent=ARTICLES.length;
+document.getElementById('countTeam').textContent=ARTICLES.filter(a=>a.type==='团队经验').length;
+document.getElementById('countPersonal').textContent=ARTICLES.filter(a=>a.type==='个人沉淀').length;
 
-  // Regular articles (first 6 non-featured)
-  document.getElementById('articleGrid').innerHTML =
-    ARTICLES.filter(a => !a.featured).slice(0, 6).map(a => renderArticleCard(a, false)).join('');
+// Render
+document.getElementById('featuredArticles').innerHTML=ARTICLES.filter(a=>a.featured).map(a=>renderArticleCard(a,true)).join('');
+document.getElementById('articleGrid').innerHTML=ARTICLES.filter(a=>!a.featured).slice(0,6).map(a=>renderArticleCard(a,false)).join('');
+document.getElementById('skillGrid').innerHTML=SKILLS.slice(0,6).map(s=>renderSkillCard(s)).join('');
+document.getElementById('toolGrid').innerHTML=TOOLS.map(t=>renderToolCard(t)).join('');
+initPills();
 
-  // Skills (first 6)
-  document.getElementById('skillGrid').innerHTML =
-    SKILLS.slice(0, 6).map(s => renderSkillCard(s)).join('');
-
-  // Tools
-  document.getElementById('toolGrid').innerHTML =
-    TOOLS.map(t => renderToolCard(t)).join('');
-
-  // Re-init after render
-  initPills();
-</script>
-</body>
-</html>
+function filterArticleType(type,btn){
+  document.querySelectorAll('.type-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#featuredArticles [data-type], #articleGrid [data-type]').forEach(c=>{
+    c.style.display=(type==='全部'||c.dataset.type===type)?'':'none';
+  });
+}
+</script></body></html>

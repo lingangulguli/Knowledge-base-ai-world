@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>什么是 Skill？· AI 专区</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+/* Page-specific styles */
+.wis-hero{max-width:var(--max-w);margin:0 auto;padding:64px 32px 48px;text-align:center}
+.wis-hero h1{font-size:44px;font-weight:800;letter-spacing:-.03em;margin-bottom:16px;line-height:1.2}
+.wis-hero h1 em{font-style:normal;background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.wis-hero p{font-size:17px;color:var(--text-secondary);line-height:1.7;max-width:640px;margin:0 auto}
+
+/* Analogy section */
+.analogy{max-width:var(--max-w);margin:0 auto;padding:0 32px 56px}
+.analogy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.analogy-card{background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:32px 28px;text-align:center;transition:all .25s}
+.analogy-card:hover{border-color:var(--border);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.analogy-icon{font-size:40px;margin-bottom:16px}
+.analogy-card h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.analogy-card p{font-size:14px;color:var(--text-secondary);line-height:1.6}
+.analogy-card .highlight{font-weight:600;color:var(--accent)}
+
+/* How it works */
+.how-section{max-width:var(--max-w);margin:0 auto;padding:0 32px 56px}
+.how-section h2{font-size:28px;font-weight:700;text-align:center;margin-bottom:12px;letter-spacing:-.02em}
+.how-section .subtitle{font-size:15px;color:var(--text-secondary);text-align:center;margin-bottom:36px;max-width:580px;margin-left:auto;margin-right:auto}
+
+.steps{display:flex;gap:16px;position:relative}
+.steps::before{content:'';position:absolute;top:36px;left:36px;right:36px;height:2px;background:var(--border-light);z-index:0}
+.step{flex:1;text-align:center;position:relative;z-index:1}
+.step-num{width:56px;height:56px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;font-family:var(--font-en);color:#fff;background:linear-gradient(135deg,#2563EB,#7C3AED)}
+.step h4{font-size:15px;font-weight:600;margin-bottom:6px}
+.step p{font-size:13px;color:var(--text-secondary);line-height:1.5;padding:0 8px}
+
+/* Skill anatomy */
+.anatomy{max-width:var(--max-w);margin:0 auto;padding:0 32px 56px}
+.anatomy h2{font-size:28px;font-weight:700;text-align:center;margin-bottom:12px;letter-spacing:-.02em}
+.anatomy .subtitle{font-size:15px;color:var(--text-secondary);text-align:center;margin-bottom:36px}
+.anatomy-box{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.code-preview{background:#1a1a2e;border-radius:var(--radius-lg);padding:24px;overflow-x:auto;position:relative}
+.code-preview-header{display:flex;gap:6px;margin-bottom:16px}
+.code-preview-header span{width:10px;height:10px;border-radius:50%}
+.code-preview-header span:nth-child(1){background:#ff5f57}
+.code-preview-header span:nth-child(2){background:#febc2e}
+.code-preview-header span:nth-child(3){background:#28c840}
+.code-preview pre{font-family:var(--font-mono);font-size:12.5px;line-height:1.7;color:#a9b7c6;margin:0;white-space:pre}
+.code-preview .comment{color:#6a737d}
+.code-preview .key{color:#c678dd}
+.code-preview .str{color:#98c379}
+.code-preview .heading{color:#e5c07b}
+
+.anatomy-explain{display:flex;flex-direction:column;gap:16px}
+.anatomy-item{padding:16px 20px;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius-md);transition:all .2s}
+.anatomy-item:hover{border-color:var(--border);box-shadow:var(--shadow-sm)}
+.anatomy-item h4{font-size:14px;font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.anatomy-item p{font-size:13px;color:var(--text-secondary);line-height:1.5}
+
+/* Use cases */
+.usecases{max-width:var(--max-w);margin:0 auto;padding:0 32px 56px}
+.usecases h2{font-size:28px;font-weight:700;text-align:center;margin-bottom:12px;letter-spacing:-.02em}
+.usecases .subtitle{font-size:15px;color:var(--text-secondary);text-align:center;margin-bottom:36px;max-width:580px;margin-left:auto;margin-right:auto}
+.usecase-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.usecase-card{padding:24px;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius-md);transition:all .25s}
+.usecase-card:hover{border-color:var(--border);box-shadow:var(--shadow-md)}
+.usecase-card .role{font-size:12px;font-weight:600;padding:3px 10px;border-radius:4px;display:inline-block;margin-bottom:10px}
+.usecase-card h4{font-size:15px;font-weight:600;margin-bottom:6px}
+.usecase-card p{font-size:13px;color:var(--text-secondary);line-height:1.6}
+
+/* Create your own */
+.create-section{max-width:var(--max-w);margin:0 auto;padding:0 32px 56px}
+.create-section h2{font-size:28px;font-weight:700;text-align:center;margin-bottom:12px;letter-spacing:-.02em}
+.create-section .subtitle{font-size:15px;color:var(--text-secondary);text-align:center;margin-bottom:36px;max-width:640px;margin-left:auto;margin-right:auto}
+
+.create-paths{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:36px}
+.create-path{background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:28px;transition:all .25s}
+.create-path:hover{box-shadow:var(--shadow-md);border-color:var(--border)}
+.create-path-icon{font-size:28px;margin-bottom:14px}
+.create-path h3{font-size:17px;font-weight:700;margin-bottom:6px}
+.create-path .tool-tag-inline{font-size:11px;padding:2px 8px;border-radius:4px;font-weight:600;margin-left:4px}
+.create-path p{font-size:14px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px}
+.create-path ol{font-size:13px;color:var(--text-secondary);line-height:1.8;padding-left:18px}
+.create-path ol li{margin-bottom:4px}
+.create-path ol li strong{color:var(--text-primary)}
+
+/* Tip box */
+.tip-box{background:var(--accent-soft);border:1px solid #DBEAFE;border-radius:var(--radius-md);padding:24px 28px;max-width:800px;margin:0 auto 40px}
+.tip-box h4{font-size:15px;font-weight:600;color:var(--accent);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.tip-box p{font-size:14px;color:var(--text-secondary);line-height:1.7}
+.tip-box a{color:var(--accent);font-weight:500}
+
+/* CTA */
+.cta-section{text-align:center;max-width:var(--max-w);margin:0 auto;padding:0 32px 64px}
+.cta-section h2{font-size:24px;font-weight:700;margin-bottom:12px}
+.cta-section p{font-size:15px;color:var(--text-secondary);margin-bottom:24px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-btn{padding:12px 28px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.cta-primary{background:var(--accent);color:#fff}.cta-primary:hover{background:var(--accent-hover)}
+.cta-secondary{background:var(--surface);color:var(--text-primary);border:1px solid var(--border)}.cta-secondary:hover{background:var(--surface-alt)}
+
+/* Responsive */
+@media(max-width:768px){
+  .analogy-grid{grid-template-columns:1fr}.steps{flex-direction:column}.steps::before{display:none}
+  .anatomy-box{grid-template-columns:1fr}.usecase-grid{grid-template-columns:1fr}.create-paths{grid-template-columns:1fr}
+  .wis-hero h1{font-size:32px}
+}
+</style>
+</head><body>
+
+<header class="header"><div class="header-inner"><div class="header-left"><a href="../index.html" class="logo"><div class="logo-icon">AI</div>AI 专区 <span class="sep">· 游戏知识库</span></a><nav><a href="articles.html">文章</a><a href="skills.html">Skill Hub</a><a href="tools.html">工具墙</a></nav></div><div class="header-right"><button class="search-trigger"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M13 13l-3-3"/></svg>搜索…<kbd>⌘K</kbd></button></div></div></header>
+
+<!-- Hero -->
+<div class="wis-hero fade-up">
+  <div class="hero-badge" style="margin:0 auto 20px"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="7" cy="7" r="6"/><path d="M7 4v3M7 9h.01"/></svg>Skill 入门指南</div>
+  <h1>什么是 <em>Skill</em>？</h1>
+  <p>Skill 是 AI Agent 的「技能包」——一段可复用的知识和指令，让 AI 知道<strong>怎么做</strong>某件具体的事。不需要写代码，不需要懂编程，人人都可以创建。</p>
+</div>
+
+<!-- Analogy -->
+<div class="analogy fade-up">
+  <div class="analogy-grid">
+    <div class="analogy-card">
+      <div class="analogy-icon">🧠</div>
+      <h3>AI 是大脑</h3>
+      <p>大语言模型（LLM）拥有通用的理解和推理能力，<span class="highlight">但不知道你的具体工作流程</span>。</p>
+    </div>
+    <div class="analogy-card">
+      <div class="analogy-icon">🔌</div>
+      <h3>MCP 是接口</h3>
+      <p>MCP（模型上下文协议）让 AI 可以<span class="highlight">连接外部工具和数据</span>，比如读文件、调 API、查数据库。</p>
+    </div>
+    <div class="analogy-card">
+      <div class="analogy-icon">⚡</div>
+      <h3>Skill 是肌肉记忆</h3>
+      <p>Skill 告诉 AI <span class="highlight">「在什么情况下、用什么工具、按什么步骤」</span>完成一件具体的事。</p>
+    </div>
+  </div>
+</div>
+
+<!-- How It Works -->
+<div class="how-section fade-up">
+  <h2>Skill 如何运作？</h2>
+  <p class="subtitle">当你安装了一个 Skill，AI Agent 会在合适的时候自动调用它，就像一个有经验的同事。</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><h4>你发出请求</h4><p>「帮我把这个设计文档生成测试用例」</p></div>
+    <div class="step"><div class="step-num">2</div><h4>Agent 识别 Skill</h4><p>Agent 在已安装的 Skills 中匹配到「QA Test Generator」</p></div>
+    <div class="step"><div class="step-num">3</div><h4>按 Skill 指引执行</h4><p>Agent 按照 Skill 定义的步骤和格式，调用相关工具完成任务</p></div>
+    <div class="step"><div class="step-num">4</div><h4>交付结果</h4><p>输出结构化的测试用例文档，直接可用</p></div>
+  </div>
+</div>
+
+<!-- Anatomy -->
+<div class="anatomy fade-up">
+  <h2>一个 Skill 长什么样？</h2>
+  <p class="subtitle">Skill 的核心就是一个 SKILL.md 文件——纯文本的 Markdown，完全透明可读。</p>
+  <div class="anatomy-box">
+    <div class="code-preview">
+      <div class="code-preview-header"><span></span><span></span><span></span></div>
+<pre><span class="comment">---</span>
+<span class="key">name:</span> <span class="str">game-asset-generator</span>
+<span class="key">description:</span> <span class="str">批量生成游戏美术资产</span>
+<span class="key">version:</span> <span class="str">2.1.0</span>
+<span class="comment">---</span>
+
+<span class="heading"># Game Asset Generator</span>
+
+<span class="comment">## 什么时候使用</span>
+当用户需要批量生成角色贴图、道具
+图标、场景概念图时，使用此技能。
+
+<span class="heading">## 执行步骤</span>
+1. 确认美术风格（卡通/写实/像素）
+2. 收集参考图和风格描述
+3. 调用 Stable Diffusion API 生成
+4. 按照项目命名规范输出文件
+5. 生成资产预览报告
+
+<span class="heading">## 输出格式</span>
+- PNG, 2048x2048, sRGB 色彩空间
+- 命名: {项目代号}_{资产类型}_{编号}</pre>
+    </div>
+    <div class="anatomy-explain">
+      <div class="anatomy-item"><h4>📋 元数据（Frontmatter）</h4><p>Skill 的名字、描述、版本号。Agent 用这些信息判断什么时候该调用这个 Skill。</p></div>
+      <div class="anatomy-item"><h4>🎯 触发条件</h4><p>明确告诉 Agent 在什么场景下使用这个 Skill，避免误触发。</p></div>
+      <div class="anatomy-item"><h4>📝 执行步骤</h4><p>一步步的操作指引——就像你写给新同事的工作流程 SOP。这是 Skill 的核心价值。</p></div>
+      <div class="anatomy-item"><h4>📁 输出规范</h4><p>定义交付物的格式、命名和质量标准，确保结果一致、可用。</p></div>
+      <div class="anatomy-item"><h4>🔧 附加脚本（可选）</h4><p>复杂 Skill 可以附带脚本文件，由 Agent 在执行时调用。不是必须的，纯文本 Skill 同样好用。</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Use Cases for Game Dev -->
+<div class="usecases fade-up">
+  <h2>Skill 能帮你做什么？</h2>
+  <p class="subtitle">不同岗位、不同场景，Skill 都能将你的经验转化为可复用的 AI 能力。</p>
+  <div class="usecase-grid">
+    <div class="usecase-card"><span class="role tag-blue">策划</span><h4>自动生成支线任务和 NPC 对话</h4><p>将世界观设定和角色关系注入 Skill，AI 可以批量生成符合设定的支线任务文案和 NPC 对话脚本。</p></div>
+    <div class="usecase-card"><span class="role tag-green">开发</span><h4>代码审查与引擎模板生成</h4><p>让 AI 按照团队的编码规范审查提交代码，或根据需求自动生成 UE5/Unity 的 Component 模板。</p></div>
+    <div class="usecase-card"><span class="role tag-amber">技术美术</span><h4>批量生成和处理美术资产</h4><p>定义风格、分辨率和命名规范，AI 调用绘图工具批量产出贴图、概念图、UI 素材。</p></div>
+    <div class="usecase-card"><span class="role tag-rose">QA</span><h4>从设计文档自动生成测试用例</h4><p>读取 GDD 文档，自动识别功能点和边界条件，输出兼容 TAPD/Jira 的结构化测试用例。</p></div>
+    <div class="usecase-card"><span class="role tag-purple">游戏运营</span><h4>玩家行为分析与自动报告</h4><p>用自然语言查询数据仓库，AI 按照 Skill 定义的分析框架生成留存、付费、活跃等运营报告。</p></div>
+    <div class="usecase-card"><span class="role tag-cyan">商业化</span><h4>广告素材自动化产出</h4><p>根据投放策略自动生成多尺寸、多风格的广告素材和文案变体，加速 A/B 测试覆盖。</p></div>
+  </div>
+</div>
+
+<!-- Create Your Own -->
+<div class="create-section fade-up">
+  <h2>如何创建你自己的 Skill？</h2>
+  <p class="subtitle">你不需要是程序员。任何人都可以把自己的工作经验转化为 Skill——用自然语言写就行。LLM 可以帮你完成从想法到代码的全过程。</p>
+
+  <div class="create-paths">
+    <div class="create-path">
+      <div class="create-path-icon">🤖</div>
+      <h3>方式一：用 AI 帮你写 <span class="tool-tag-inline tag-blue">推荐</span></h3>
+      <p>用 WorkBuddy、CodeBuddy、Claude、ChatGPT 等任何 LLM，把你的经验描述出来，让 AI 帮你生成 SKILL.md。</p>
+      <ol>
+        <li><strong>描述你的工作流程</strong> — 「我平时做 XX 的时候，第一步是...第二步是...」</li>
+        <li><strong>让 AI 生成 Skill 文件</strong> — 「请帮我把这个流程写成一个 SKILL.md」</li>
+        <li><strong>测试和迭代</strong> — 安装到你的 Agent 里试用，不好就改</li>
+        <li><strong>分享</strong> — 发布到 AI World / SkillHub，让团队都能用</li>
+      </ol>
+    </div>
+    <div class="create-path">
+      <div class="create-path-icon">✍️</div>
+      <h3>方式二：自己动手写</h3>
+      <p>如果你对 Markdown 格式熟悉，可以直接创建 SKILL.md 文件。写好后放到你的 Agent 技能目录即可。</p>
+      <ol>
+        <li><strong>新建文件夹</strong> — 在 ~/.skills/ 下创建以技能命名的文件夹</li>
+        <li><strong>写 SKILL.md</strong> — 包含元数据、触发条件、执行步骤、输出规范</li>
+        <li><strong>（可选）附加脚本</strong> — 如有需要，放入 Python/Shell 脚本</li>
+        <li><strong>测试</strong> — 在 Agent 中触发场景，验证效果</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <h4>💡 写 Skill 的最佳实践</h4>
+    <p>
+      <strong>从你最熟悉的重复性工作开始。</strong>如果一件事你每周都在做、每次流程差不多，那它就是一个完美的 Skill 候选。
+      写 Skill 就像写给新同事的工作交接文档——描述清楚「什么时候做」「怎么做」「做到什么程度算合格」就够了。
+      <br><br>
+      推荐工具：<a href="https://www.codebuddy.cn/work/" target="_blank">腾讯 WorkBuddy</a>（兼容 OpenClaw 技能生态，支持 Skill 导入和创建）、
+      <a href="https://www.codebuddy.ai/" target="_blank">CodeBuddy</a>（AI 编程助手，适合写复杂 Skill）、
+      Claude、ChatGPT 等通用 LLM 同样可以帮你生成 Skill。
+    </p>
+  </div>
+
+  <div class="tip-box" style="background:var(--green-soft);border-color:#BBF7D0;">
+    <h4 style="color:var(--green);">📝 鼓励投稿：把你的经验变成文章和 Skill</h4>
+    <p>
+      我们鼓励每一位同事将自己的 AI 实践经验写成知识库文章。好的文章可以进一步转化为 Skill，发布到 AI World 技能商店供全团队复用。
+      <strong>一篇好的经验文章 + 一个可安装的 Skill = 最高效的知识传递方式。</strong>
+      <br><br>
+      文章和 Skill 不需要完美，能用就发。迭代才是正道。
+    </p>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section fade-up">
+  <h2>准备好了吗？</h2>
+  <p>浏览现有的游戏 AI Skills，或者开始创建你自己的第一个 Skill。</p>
+  <div class="cta-btns">
+    <a href="skills.html" class="cta-btn cta-primary">⚡ 浏览 Skill Hub</a>
+    <a href="https://www.codebuddy.cn/work/" target="_blank" class="cta-btn cta-secondary">🤖 下载 WorkBuddy</a>
+    <a href="https://wj.qq.com/s2/26026989/0c20" target="_blank" class="cta-btn cta-secondary">💬 反馈建议</a>
+  </div>
+</div>
+
+<footer class="footer"><span>© 2026 游戏知识库 · AI 专区</span><div class="footer-links"><a href="https://gameinstitute.qq.com/" target="_blank">关于我们</a><a href="https://wj.qq.com/s2/26026989/0c20" target="_blank">反馈建议</a><a href="https://gameinstitute.qq.com/" target="_blank">帮助文档</a></div></footer>
+<div class="panel-overlay" id="panelOverlay" onclick="closePanel()"></div><div class="detail-panel" id="detailPanel"><div class="panel-header"><button class="panel-fav" onclick="alert('已收藏')">♡</button><button class="panel-close" onclick="closePanel()">✕</button></div><div class="panel-body" id="panelBody"></div></div>
+<script src="../js/main.js"></script>
+</body></html>

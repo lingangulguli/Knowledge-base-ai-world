@@ -1,96 +1,37 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>全部 Skills · AI 专区</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>全部 Skills · AI 专区</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../css/style.css"></head><body>
+<header class="header"><div class="header-inner"><div class="header-left"><a href="../index.html" class="logo"><div class="logo-icon">AI</div>AI 专区 <span class="sep">· 游戏知识库</span></a><nav><a href="articles.html">文章</a><a href="skills.html" class="active">Skill Hub</a><a href="tools.html">工具墙</a></nav></div><div class="header-right"><button class="search-trigger"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M13 13l-3-3"/></svg>搜索技能…<kbd>⌘K</kbd></button></div></div></header>
 
-<header class="header">
-  <div class="header-inner">
-    <div class="header-left">
-      <a href="../index.html" class="logo">
-        <div class="logo-icon">AI</div>
-        AI 专区 <span class="sep">· 游戏知识库</span>
-      </a>
-      <nav>
-        <a href="articles.html">文章</a>
-        <a href="skills.html" class="active">Skill Hub</a>
-        <a href="tools.html">工具墙</a>
-      </nav>
-    </div>
-    <div class="header-right">
-      <button class="search-trigger" onclick="alert('搜索功能开发中…')">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M13 13l-3-3"/></svg>
-        搜索技能…
-        <kbd>⌘K</kbd>
-      </button>
-    </div>
-  </div>
-</header>
+<div class="page-hero fade-up"><h1>游戏 AI Skills</h1><p>来自 SkillHub、ClawHub 和 Knot 的游戏研发 AI 技能，一键安装到你的工作流</p><a href="what-is-skill.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;font-weight:600;padding:6px 16px;border-radius:100px;background:var(--accent-soft);color:var(--accent);text-decoration:none;transition:all .2s;">❓ 什么是 Skill？了解更多 →</a></div>
+<div class="page-controls fade-up d1"><div style="display:flex;gap:10px;flex-wrap:wrap"><input class="page-search" placeholder="搜索技能名称…" id="skillSearch" oninput="filterSkills()"><select class="page-sort"><option>综合排序</option><option>按下载量</option><option>按收藏数</option></select></div></div>
 
-<div class="page-hero fade-up">
-  <h1>游戏 AI Skills</h1>
-  <p>来自 SkillHub、ClawHub 和 Knot 的游戏研发 AI 技能，一键安装到你的工作流</p>
-</div>
+<div class="section page-content fade-up d2" style="padding-top:0"><div class="category-pills" id="skillPagePills" style="margin-bottom:20px"></div><div class="skills-grid" id="allSkills"></div><div class="pagination" id="skillPagination"></div>
+<div class="credit-line" style="margin-top:18px;padding:0">ℹ️ 技能数据来源于 <a href="https://skillhub.tencent.com/" target="_blank">SkillHub</a>、<a href="https://github.com/nicepkg/claw-hub" target="_blank">ClawHub</a> 和 <a href="https://knot.woa.com/mcp/market" target="_blank">Knot</a></div></div>
 
-<div class="page-controls fade-up d1">
-  <div style="display:flex;gap:10px;flex-wrap:wrap;">
-    <input class="page-search" placeholder="搜索技能名称…" id="skillSearch">
-    <select class="page-sort">
-      <option>综合排序</option>
-      <option>按下载量</option>
-      <option>按收藏数</option>
-    </select>
-  </div>
-</div>
-
-<div class="section page-content fade-up d2" style="padding-top:0;">
-  <div class="category-pills" id="skillPagePills" style="margin-bottom:20px;"></div>
-  <div class="skills-grid" id="allSkills"></div>
-  <div class="credit-line" style="margin-top:18px;padding:0;">
-    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="5"/><path d="M6 4v2M6 8h.01"/></svg>
-    技能数据来源于 <a href="https://skillhub.tencent.com/" target="_blank">SkillHub</a>、<a href="https://github.com/nicepkg/claw-hub" target="_blank">ClawHub</a> 和 <a href="https://knot.woa.com/mcp/market" target="_blank">Knot</a>
-  </div>
-</div>
-
-<footer class="footer">
-  <span>© 2026 游戏知识库 · AI 专区</span>
-  <div class="footer-links">
-    <a href="https://gameinstitute.qq.com/" target="_blank">关于我们</a>
-    <a href="https://wj.qq.com/s2/26026989/0c20" target="_blank">反馈建议</a>
-    <a href="https://gameinstitute.qq.com/" target="_blank">帮助文档</a>
-  </div>
-</footer>
-
-<div class="panel-overlay" id="panelOverlay" onclick="closePanel()"></div>
-<div class="detail-panel" id="detailPanel">
-  <div class="panel-header">
-    <button class="panel-fav" onclick="alert('已收藏')">♡</button>
-    <button class="panel-close" onclick="closePanel()">✕</button>
-  </div>
-  <div class="panel-body" id="panelBody"></div>
-</div>
+<footer class="footer"><span>© 2026 游戏知识库 · AI 专区</span><div class="footer-links"><a href="https://gameinstitute.qq.com/" target="_blank">关于我们</a><a href="https://wj.qq.com/s2/26026989/0c20" target="_blank">反馈建议</a><a href="https://gameinstitute.qq.com/" target="_blank">帮助文档</a></div></footer>
+<div class="panel-overlay" id="panelOverlay" onclick="closePanel()"></div><div class="detail-panel" id="detailPanel"><div class="panel-header"><button class="panel-fav" onclick="alert('已收藏')">♡</button><button class="panel-close" onclick="closePanel()">✕</button></div><div class="panel-body" id="panelBody"></div></div>
 
 <script src="../js/main.js"></script>
 <script>
-  renderCategoryPills(CATEGORIES, 'skillPagePills');
-  document.getElementById('allSkills').innerHTML =
-    SKILLS.map(s => renderSkillCard(s)).join('');
-  initPills();
+const PER_PAGE=8; let currentPage=1; let filtered=SKILLS;
+renderCategoryPills(CATEGORIES,'skillPagePills');
 
-  document.getElementById('skillSearch').addEventListener('input', function() {
-    const q = this.value.toLowerCase();
-    document.querySelectorAll('.skill-card').forEach(card => {
-      const title = card.querySelector('h3').textContent.toLowerCase();
-      card.style.display = title.includes(q) ? '' : 'none';
-    });
+function filterSkills(){
+  const q=(document.getElementById('skillSearch').value||'').toLowerCase();
+  const activePill=document.querySelector('.category-pills .pill.active');
+  const cat=activePill?activePill.dataset.cat:'全部';
+  filtered=SKILLS.filter(s=>{
+    const matchQ=!q||s.name.toLowerCase().includes(q)||s.desc.toLowerCase().includes(q);
+    const matchCat=cat==='全部'||s.category===cat;
+    return matchQ&&matchCat;
   });
-</script>
-</body>
-</html>
+  currentPage=1; renderPage(1);
+}
+function renderPage(page){
+  currentPage=page;
+  const start=(page-1)*PER_PAGE,end=start+PER_PAGE;
+  document.getElementById('allSkills').innerHTML=filtered.slice(start,end).map(s=>renderSkillCard(s)).join('');
+  renderPagination('skillPagination',filtered.length,PER_PAGE,page,'renderPage');
+}
+setTimeout(()=>{document.querySelectorAll('.category-pills .pill').forEach(p=>{p.addEventListener('click',()=>setTimeout(filterSkills,10));});},50);
+renderPage(1);
+</script></body></html>
